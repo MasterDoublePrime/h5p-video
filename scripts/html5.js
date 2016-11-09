@@ -65,11 +65,18 @@ H5P.VideoHtml5 = (function ($) {
     video.loop = (options.loop ? true : false);
     video.className = 'h5p-video';
     video.style.display = 'block';
+    
+	video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('preload', 'metadata');
     if (options.fit) {
       // Style is used since attributes with relative sizes aren't supported by IE9.
+        
+        
       video.style.width = '100%';
       video.style.height = '100%';
     }
+      
     // Add poster if provided
     if (options.poster) {
       video.poster = options.poster;
